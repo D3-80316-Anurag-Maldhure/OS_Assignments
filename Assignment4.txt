@@ -1,0 +1,90 @@
+anuragmaldhure@Anurags-MacBook-Air OS % cat >> data.txt
+Linux is open source.
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat data.txt 
+Linux is open source.
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+_______________________________________________________________________________
+
+i. Count the number of words, characters, and lines (man wc)
+
+anuragmaldhure@Anurags-MacBook-Air OS % wc data.txt 
+       6      25     145 data.txt
+_______________________________________________________________________________
+
+ii. List the lines having the word "files" (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "files" data.txt
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+_______________________________________________________________________________
+
+iii. List the lines having the word "file" (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "file" data.txt
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+_______________________________________________________________________________
+
+iv. List the lines that don't have the word "files" (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep -v "files" data.txt
+Linux is open source.
+In Linux everything is file
+_______________________________________________________________________________
+
+v. List the lines having the word "have" (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "have" data.txt
+files have permissions.
+files have inode no.
+files have size.
+_______________________________________________________________________________
+
+vi. List the lines starting with the letter "f" (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "^f" data.txt
+files have permissions.
+files have inode no.
+files have size.
+_______________________________________________________________________________
+
+vii. List the lines ending with "." (man grep)
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "\.$" data.txt
+Linux is open source.
+files have permissions.
+files have inode no.
+files have size.
+_______________________________________________________________________________
+
+viii. List only the first two lines (man head)
+
+anuragmaldhure@Anurags-MacBook-Air OS % head -n 2 data.txt
+Linux is open source.
+In Linux everything is file
+_______________________________________________________________________________
+
+ix. List only the last three lines (man tail)
+
+tail -n 3 data.txt
+_______________________________________________________________________________
+
+x. List lines no. 3, 4, and 5 (man head and tail)
+head -n 5 data.txt | tail -n 3
+_______________________________________________________________________________
+\
