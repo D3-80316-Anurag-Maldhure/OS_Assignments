@@ -1,0 +1,479 @@
+1.
+anuragmaldhure@Anurags-MacBook-Air ~ % ls -a 
+.						.git						.redhat						Documents
+..						.gitconfig					.ssh						Downloads
+.BrowserLock					.idlerc						.sts4						IdeaProjects
+.CFUserTextEncoding				.lesshst					.vim						Library
+.DS_Store					.local						.viminfo					MATLAB__Support_Package_for_IP_Cameras.txt
+.Trash						.matplotlib					.vnc						Movies
+.android					.mongodb					.vscode						Music
+.anydesk					.my.cnf						.zowe						Pictures
+.bash_history					.mysql_history					.zprofile					Postman
+.bash_profile					.npm						.zsh_history					Public
+.cache						.oracle_jre_usage				.zsh_sessions					PycharmProjects
+.config						.p2						Applications					__pycache__
+.eclipse					.psql_history					Desktop
+
+//Hidden files start with .
+_____________________________________________________________________________________________________________________
+
+2.
+anuragmaldhure@Anurags-MacBook-Air OS % ls
+Anurag.txt		Assignment3.txt		Rushi.txt		data.txt		myName.txt		table.sh
+Assignment1.txt		Assignment4.txt		Test			demoVIM.sh		one			typescript
+Assignment2.txt		Assignment5.txt		checkFileDirectory.sh	menu.sh			scripts
+
+
+anuragmaldhure@Anurags-MacBook-Air OS % mv data.txt bigData.txt 
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls                          
+Anurag.txt		Assignment3.txt		Rushi.txt		checkFileDirectory.sh	myName.txt		table.sh
+Assignment1.txt		Assignment4.txt		Test			demoVIM.sh		one			typescript
+Assignment2.txt		Assignment5.txt		bigData.txt		menu.sh			scripts
+
+_____________________________________________________________________________________________________________________
+
+3.
+anuragmaldhure@Anurags-MacBook-Air one % ln -s 1.txt linkFileSymbolic.txt
+
+anuragmaldhure@Anurags-MacBook-Air one % ls -l                           
+total 8
+-rw-r--r--@ 1 anuragmaldhure  staff   18 Nov 28 17:18 1.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 11.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 111.txt
+lrwxr-xr-x  1 anuragmaldhure  staff    5 Jan  1  1970 linkFileSymbolic.txt -> 1.txt
+drwxr-xr-x  5 anuragmaldhure  staff  160 Nov 27 22:42 two
+_____________________________________________________________________________________________________________________
+
+4.
+anuragmaldhure@Anurags-MacBook-Air one % ln 1.txt linkFileHard.txt    
+
+anuragmaldhure@Anurags-MacBook-Air one % ls -l                    
+total 16
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 1.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 11.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 111.txt
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 linkFileHard.txt
+lrwxr-xr-x  1 anuragmaldhure  staff    5 Jan  1  1970 linkFileSymbolic.txt -> 1.txt
+drwxr-xr-x  5 anuragmaldhure  staff  160 Nov 27 22:42 two
+_____________________________________________________________________________________________________________________
+
+5.
+anuragmaldhure@Anurags-MacBook-Air one % stat 
+3589163712 839 crw--w---- 1 anuragmaldhure tty 268435456 0 "Nov 28 17:24:58 2023" "Nov 28 17:24:59 2023" "Nov 28 17:24:59 2023" "Jan  1 05:30:00 1970" 65536 0 0 (stdin)
+
+anuragmaldhure@Anurags-MacBook-Air one % stat 1.txt 
+16777230 33937206 -rw-r--r-- 2 anuragmaldhure staff 0 18 "Nov 28 17:23:54 2023" "Nov 28 17:18:24 2023" "Nov 28 17:23:54 2023" "Nov 27 22:17:31 2023" 4096 8 0x40 1.txt
+
+anuragmaldhure@Anurags-MacBook-Air one % stat two  
+16777230 33937291 drwxr-xr-x 5 anuragmaldhure staff 0 160 "Nov 28 17:22:08 2023" "Nov 27 22:42:16 2023" "Nov 27 22:42:17 2023" "Nov 27 22:17:39 2023" 4096 0 0 two
+_____________________________________________________________________________________________________________________
+
+6.
+
+anuragmaldhure@Anurags-MacBook-Air one % ls -l 
+total 16
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 1.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 11.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 111.txt
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 linkFileHard.txt
+lrwxr-xr-x  1 anuragmaldhure  staff    5 Jan  1  1970 linkFileSymbolic.txt -> 1.txt
+drwxr-xr-x  5 anuragmaldhure  staff  160 Nov 27 22:42 two
+
+anuragmaldhure@Anurags-MacBook-Air one % touch 11.txt
+
+anuragmaldhure@Anurags-MacBook-Air one % ls -l       
+total 16
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 1.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 28 17:27 11.txt
+-rw-r--r--  1 anuragmaldhure  staff    0 Nov 27 22:17 111.txt
+-rw-r--r--@ 2 anuragmaldhure  staff   18 Nov 28 17:18 linkFileHard.txt
+lrwxr-xr-x  1 anuragmaldhure  staff    5 Jan  1  1970 linkFileSymbolic.txt -> 1.txt
+drwxr-xr-x  5 anuragmaldhure  staff  160 Nov 27 22:42 two
+_____________________________________________________________________________________________________________________
+
+7.
+anuragmaldhure@Anurags-MacBook-Air one % touch newFile.txt
+
+anuragmaldhure@Anurags-MacBook-Air one % wc newFile.txt 
+       0       0       0 newFile.txt
+_____________________________________________________________________________________________________________________
+
+8.
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigData.txt 
+Linux is open source.
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+
+anuragmaldhure@Anurags-MacBook-Air OS % tail -n +5 bigData.txt 
+
+files have size.
+there are several types of files
+
+anuragmaldhure@Anurags-MacBook-Air OS % tail -n 5 bigData.txt
+
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+_____________________________________________________________________________________________________________________
+
+9.
+init 0, poweroff
+Shutdown (Only for super-user)
+_____________________________________________________________________________________________________________________
+
+10.
+init 6, reboot
+Reboot (Only for super-user)
+_____________________________________________________________________________________________________________________
+
+11. 
+anuragmaldhure@Anurags-MacBook-Air one % whoami  
+anuragmaldhure
+_____________________________________________________________________________________________________________________
+
+12. 
+anuragmaldhure@Anurags-MacBook-Air one % tty
+/dev/ttys000
+
+Last login: Tue Nov 28 17:46:08 on ttys001
+anuragmaldhure@Anurags-MacBook-Air ~ % tty     
+/dev/ttys001
+_____________________________________________________________________________________________________________________
+
+13. 
+anuragmaldhure@Anurags-MacBook-Air one % who am i
+anuragmaldhure   ttys000      Nov 28 16:33 
+_____________________________________________________________________________________________________________________
+
+14.
+anuragmaldhure@Anurags-MacBook-Air ~ % users
+anuragmaldhure
+_____________________________________________________________________________________________________________________
+
+15.
+anuragmaldhure@Anurags-MacBook-Air ~ % who
+anuragmaldhure   console      Nov 26 13:00 
+anuragmaldhure   ttys000      Nov 28 16:33 
+anuragmaldhure   ttys001      Nov 28 17:46 
+_____________________________________________________________________________________________________________________
+
+16.
+anuragmaldhure@Anurags-MacBook-Air scripts % users
+anuragmaldhure
+_____________________________________________________________________________________________________________________
+
+17.
+
+anuragmaldhure@Anurags-MacBook-Air OS % grep "no" bigData.txt
+files have inode no.
+
+anuragmaldhure@Anurags-MacBook-Air OS % fgrep "no" bigData.txt
+files have inode no.
+
+anuragmaldhure@Anurags-MacBook-Air OS % egrep "no" bigData.txt
+files have inode no.
+_____________________________________________________________________________________________________________________
+
+18.
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -l                     
+total 200
+-rw-r--r--   1 anuragmaldhure  staff      0 Nov 21  2020 Anurag.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15055 Nov 27 21:47 Assignment1.txt
+-rw-r--r--@  1 anuragmaldhure  staff  11898 Nov 27 22:46 Assignment2.txt
+-rw-r--r--@  1 anuragmaldhure  staff   9205 Dec  1 19:02 Assignment3.txt
+-rw-r--r--@  1 anuragmaldhure  staff   2924 Nov 29 23:22 Assignment4.txt
+-rw-r--r--@  1 anuragmaldhure  staff  14377 Dec  1 16:00 Assignment5.txt
+-rw-r--r--   1 anuragmaldhure  staff    113 Nov 27 17:53 Rushi.txt
+drwxr-xr-x   6 anuragmaldhure  staff    192 Nov 27 18:28 Test
+-rw-rw-rw-   1 anuragmaldhure  staff    145 Nov 28 18:09 bigData.txt
+-rw-r--r--   1 anuragmaldhure  staff    582 Nov 29 23:36 checkFileDirectory.sh
+-rwxrwxrwx   1 anuragmaldhure  staff    133 Nov 30 16:56 demoVIM.sh
+-rw-r--r--   1 anuragmaldhure  staff    145 Dec  1 18:59 grep
+-rw-r--r--   1 anuragmaldhure  staff    183 Dec  1 18:52 head
+-rwxr--r--   1 anuragmaldhure  staff    855 Nov 29 23:29 menu.sh
+-rw-r--r--   1 anuragmaldhure  staff     62 Nov 27 22:09 myName.txt
+drwxr-xr-x  10 anuragmaldhure  staff    320 Nov 28 17:50 one
+drwxr-xr-x  12 anuragmaldhure  staff    384 Dec  1 07:34 scripts
+-rw-r--r--   1 anuragmaldhure  staff    234 Dec  1 06:54 table.sh
+-rw-r--r--   1 anuragmaldhure  staff    596 Dec  1 06:54 typescript
+
+anuragmaldhure@Anurags-MacBook-Air OS % sudo chmod 444 bigData.txt
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -l                     
+total 200
+-rw-r--r--   1 anuragmaldhure  staff      0 Nov 21  2020 Anurag.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15055 Nov 27 21:47 Assignment1.txt
+-rw-r--r--@  1 anuragmaldhure  staff  11898 Nov 27 22:46 Assignment2.txt
+-rw-r--r--@  1 anuragmaldhure  staff   9205 Dec  1 19:02 Assignment3.txt
+-rw-r--r--@  1 anuragmaldhure  staff   2924 Nov 29 23:22 Assignment4.txt
+-rw-r--r--@  1 anuragmaldhure  staff  14377 Dec  1 16:00 Assignment5.txt
+-rw-r--r--   1 anuragmaldhure  staff    113 Nov 27 17:53 Rushi.txt
+drwxr-xr-x   6 anuragmaldhure  staff    192 Nov 27 18:28 Test
+-r--r--r--   1 anuragmaldhure  staff    145 Nov 28 18:09 bigData.txt
+-rw-r--r--   1 anuragmaldhure  staff    582 Nov 29 23:36 checkFileDirectory.sh
+-rwxrwxrwx   1 anuragmaldhure  staff    133 Nov 30 16:56 demoVIM.sh
+-rw-r--r--   1 anuragmaldhure  staff    145 Dec  1 18:59 grep
+-rw-r--r--   1 anuragmaldhure  staff    183 Dec  1 18:52 head
+-rwxr--r--   1 anuragmaldhure  staff    855 Nov 29 23:29 menu.sh
+-rw-r--r--   1 anuragmaldhure  staff     62 Nov 27 22:09 myName.txt
+drwxr-xr-x  10 anuragmaldhure  staff    320 Nov 28 17:50 one
+drwxr-xr-x  12 anuragmaldhure  staff    384 Dec  1 07:34 scripts
+-rw-r--r--   1 anuragmaldhure  staff    234 Dec  1 06:54 table.sh
+-rw-r--r--   1 anuragmaldhure  staff    596 Dec  1 06:54 typescript
+_____________________________________________________________________________________________________________________
+
+19.
+
+anuragmaldhure@Anurags-MacBook-Air OS % sudo chmod 777 bigData.txt
+Password:
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -l                     
+total 200
+-rw-r--r--   1 anuragmaldhure  staff      0 Nov 21  2020 Anurag.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15055 Nov 27 21:47 Assignment1.txt
+-rw-r--r--@  1 anuragmaldhure  staff  11898 Nov 27 22:46 Assignment2.txt
+-rw-r--r--@  1 anuragmaldhure  staff  12017 Dec  1 19:05 Assignment3.txt
+-rw-r--r--@  1 anuragmaldhure  staff   2924 Nov 29 23:22 Assignment4.txt
+-rw-r--r--@  1 anuragmaldhure  staff  14377 Dec  1 16:00 Assignment5.txt
+-rw-r--r--   1 anuragmaldhure  staff    113 Nov 27 17:53 Rushi.txt
+drwxr-xr-x   6 anuragmaldhure  staff    192 Nov 27 18:28 Test
+-rwxrwxrwx   1 anuragmaldhure  staff    145 Nov 28 18:09 bigData.txt
+-rw-r--r--   1 anuragmaldhure  staff    582 Nov 29 23:36 checkFileDirectory.sh
+-rwxrwxrwx   1 anuragmaldhure  staff    133 Nov 30 16:56 demoVIM.sh
+-rw-r--r--   1 anuragmaldhure  staff    145 Dec  1 18:59 grep
+-rw-r--r--   1 anuragmaldhure  staff    183 Dec  1 18:52 head
+-rwxr--r--   1 anuragmaldhure  staff    855 Nov 29 23:29 menu.sh
+-rw-r--r--   1 anuragmaldhure  staff     62 Nov 27 22:09 myName.txt
+drwxr-xr-x  10 anuragmaldhure  staff    320 Nov 28 17:50 one
+drwxr-xr-x  12 anuragmaldhure  staff    384 Dec  1 07:34 scripts
+-rw-r--r--   1 anuragmaldhure  staff    234 Dec  1 06:54 table.sh
+-rw-r--r--   1 anuragmaldhure  staff    596 Dec  1 06:54 typescript
+_____________________________________________________________________________________________________________________
+
+20.
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigData.txt
+Linux is open source.
+In Linux everything is file
+files have permissions.
+files have inode no.
+files have size.
+there are several types of files
+
+anuragmaldhure@Anurags-MacBook-Air OS % wc bigData.txt > bigDataMetaData.txt
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigDataMetaData.txt
+       6      25     145 bigData.txt
+_____________________________________________________________________________________________________________________
+
+21.
+
+anuragmaldhure@Anurags-MacBook-Air OS % who | wc 
+       2      10      88
+
+anuragmaldhure@Anurags-MacBook-Air OS % who      
+anuragmaldhure   console      Nov 26 13:00 
+anuragmaldhure   ttys000      Dec  1 06:55 
+_____________________________________________________________________________________________________________________
+
+22.
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigData.txt                         
+1 Linux is open source.
+2 In Linux everything is file
+3 files have permissions.
+4 files have inode no.
+5 files have size.
+6 there are several types of files.
+7 The file system
+8 in linux
+9 is ext 3 4
+10 while in windows
+11 is NTFS or FAT32.
+12 Which file system 
+13 do you think is better?
+
+anuragmaldhure@Anurags-MacBook-Air OS % head -n 10 bigData.txt | tail -n +5        
+5 files have size.
+6 there are several types of files.
+7 The file system
+8 in linux
+9 is ext 3 4
+10 while in windows
+_____________________________________________________________________________________________________________________
+
+23.
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigData.txt           
+1 Linux is open source.
+2 In Linux everything is file
+3 files have permissions.
+4 files have inode no.
+5 files have size.
+6 there are several types of files.
+7 The file system
+8 in linux
+8 in linux
+8 in linux
+8 in linux
+8 in linux
+9 is ext 3 4
+10 while in windows
+11 is NTFS or FAT32.
+12 Which file system 
+13 do you think is better?
+
+anuragmaldhure@Anurags-MacBook-Air OS % sort bigData.txt | uniq -c
+
+   1 1 Linux is open source.
+   1 10 while in windows
+   1 11 is NTFS or FAT32.
+   1 12 Which file system 
+   1 13 do you think is better?
+   1 2 In Linux everything is file
+   1 3 files have permissions.
+   1 4 files have inode no.
+   1 5 files have size.
+   1 6 there are several types of files.
+   1 7 The file system
+   5 8 in linux
+   1 9 is ext 3 4
+_____________________________________________________________________________________________________________________
+
+24.
+
+anuragmaldhure@Anurags-MacBook-Air OS % who | grep -v 'tty2\|tty3\|tty4'                   
+anuragmaldhure   console      Nov 26 13:00 
+anuragmaldhure   ttys000      Dec  1 06:55 
+
+anuragmaldhure@Anurags-MacBook-Air OS % who | grep -v 'tty2\|tty3\|tty4' | awk '{print $1}'
+
+anuragmaldhure
+anuragmaldhure
+_____________________________________________________________________________________________________________________
+
+25.
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -l | sort        
+-rw-r--r--   1 anuragmaldhure  staff      0 Nov 21  2020 Anurag.txt
+-rw-r--r--   1 anuragmaldhure  staff     37 Dec  1 22:06 bigDataMetaData.txt
+-rw-r--r--   1 anuragmaldhure  staff     62 Nov 27 22:09 myName.txt
+-rw-r--r--   1 anuragmaldhure  staff    113 Nov 27 17:53 Rushi.txt
+-rw-r--r--   1 anuragmaldhure  staff    145 Dec  1 18:59 grep
+-rw-r--r--   1 anuragmaldhure  staff    183 Dec  1 18:52 head
+-rw-r--r--   1 anuragmaldhure  staff    234 Dec  1 06:54 table.sh
+-rw-r--r--   1 anuragmaldhure  staff    582 Nov 29 23:36 checkFileDirectory.sh
+-rw-r--r--   1 anuragmaldhure  staff    596 Dec  1 06:54 typescript
+-rw-r--r--@  1 anuragmaldhure  staff   2924 Nov 29 23:22 Assignment4.txt
+-rw-r--r--@  1 anuragmaldhure  staff  11898 Nov 27 22:46 Assignment2.txt
+-rw-r--r--@  1 anuragmaldhure  staff  14377 Dec  1 16:00 Assignment5.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15055 Nov 27 21:47 Assignment1.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15772 Dec  1 22:28 Assignment3.txt
+-rwxr--r--   1 anuragmaldhure  staff    855 Nov 29 23:29 menu.sh
+-rwxrwxrwx   1 anuragmaldhure  staff    133 Nov 30 16:56 demoVIM.sh
+-rwxrwxrwx   1 anuragmaldhure  staff    334 Dec  1 22:26 bigData.txt
+drwxr-xr-x   6 anuragmaldhure  staff    192 Nov 27 18:28 Test
+drwxr-xr-x  10 anuragmaldhure  staff    320 Nov 28 17:50 one
+drwxr-xr-x  12 anuragmaldhure  staff    384 Dec  1 07:34 scripts
+total 216
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -l | sort -k 5,5n
+
+-rw-r--r--   1 anuragmaldhure  staff      0 Nov 21  2020 Anurag.txt
+total 216
+-rw-r--r--   1 anuragmaldhure  staff     37 Dec  1 22:06 bigDataMetaData.txt
+-rw-r--r--   1 anuragmaldhure  staff     62 Nov 27 22:09 myName.txt
+-rw-r--r--   1 anuragmaldhure  staff    113 Nov 27 17:53 Rushi.txt
+-rwxrwxrwx   1 anuragmaldhure  staff    133 Nov 30 16:56 demoVIM.sh
+-rw-r--r--   1 anuragmaldhure  staff    145 Dec  1 18:59 grep
+-rw-r--r--   1 anuragmaldhure  staff    183 Dec  1 18:52 head
+drwxr-xr-x   6 anuragmaldhure  staff    192 Nov 27 18:28 Test
+-rw-r--r--   1 anuragmaldhure  staff    234 Dec  1 06:54 table.sh
+drwxr-xr-x  10 anuragmaldhure  staff    320 Nov 28 17:50 one
+-rwxrwxrwx   1 anuragmaldhure  staff    334 Dec  1 22:26 bigData.txt
+drwxr-xr-x  12 anuragmaldhure  staff    384 Dec  1 07:34 scripts
+-rw-r--r--   1 anuragmaldhure  staff    582 Nov 29 23:36 checkFileDirectory.sh
+-rw-r--r--   1 anuragmaldhure  staff    596 Dec  1 06:54 typescript
+-rwxr--r--   1 anuragmaldhure  staff    855 Nov 29 23:29 menu.sh
+-rw-r--r--@  1 anuragmaldhure  staff   2924 Nov 29 23:22 Assignment4.txt
+-rw-r--r--@  1 anuragmaldhure  staff  11898 Nov 27 22:46 Assignment2.txt
+-rw-r--r--@  1 anuragmaldhure  staff  14377 Dec  1 16:00 Assignment5.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15055 Nov 27 21:47 Assignment1.txt
+-rw-r--r--@  1 anuragmaldhure  staff  15772 Dec  1 22:28 Assignment3.txt
+_____________________________________________________________________________________________________________________
+
+26.
+
+anuragmaldhure@Anurags-MacBook-Air OS % echo "Number of files: $(ls -l | grep -E '^[-]' | wc -l)"
+echo "Number of directories: $(ls -l | grep -E '^d' | wc -l)"
+
+Number of files:       17
+Number of directories:        3
+_____________________________________________________________________________________________________________________
+
+27.
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -a | grep '^\.'
+
+.
+..
+.DS_Store
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -ad .* | grep -v '^\.+$'
+
+.DS_Store
+_____________________________________________________________________________________________________________________
+
+28.
+
+anuragmaldhure@Anurags-MacBook-Air OS % tr '[:lower:]' '[:upper:]' < bigData.txt
+
+1 LINUX IS OPEN SOURCE.
+2 IN LINUX EVERYTHING IS FILE
+3 FILES HAVE PERMISSIONS.
+4 FILES HAVE INODE NO.
+5 FILES HAVE SIZE.
+6 THERE ARE SEVERAL TYPES OF FILES.
+7 THE FILE SYSTEM
+8 IN LINUX
+8 IN LINUX
+8 IN LINUX
+8 IN LINUX
+8 IN LINUX
+9 IS EXT 3 4
+10 WHILE IN WINDOWS
+11 IS NTFS OR FAT32.
+12 WHICH FILE SYSTEM 
+13 DO YOU THINK IS BETTER?
+
+// [:lower:]: Represents all lowercase letters.
+// [:upper:]: Represents all uppercase letters.
+// < input.txt: Takes the content of input.txt as input for tr.
+// tr = translate
+
+_____________________________________________________________________________________________________________________
+
+29.
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim employees.txt
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat employees.txt                       
+Sainath,Ibitwar,23,Engineer
+Shreyash,Tadas,23,Doctor
+Kamakshi,Tijare,23,Dentist
+
+
+anuragmaldhure@Anurags-MacBook-Air OS % cut -d ',' -f 1,3 employees.txt
+
+Sainath,23
+Shreyash,23
+Kamakshi,23
+_____________________________________________________________________________________________________________________
