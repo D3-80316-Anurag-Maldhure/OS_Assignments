@@ -1,0 +1,711 @@
+1.
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim demoVIM.sh 
+
+#!/bin/bash
+
+# Display LOGIN NAME
+echo "LOGIN NAME : $LOGNAME"
+
+# Display HOME directory
+echo "HOME directory : $HOME"
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash demoVIM.sh
+LOGIN NAME : anuragmaldhure
+HOME directory : /Users/anuragmaldhure
+
+-------------------------------------------------------------------------------------------------------------------
+2. 
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim menu.sh
+
+#!/bin/bash
+
+while true; do
+
+    # Display menu
+    echo "Menu:"
+    echo "1. Date"
+    echo "2. Cal"
+    echo "3. Ls"
+    echo "4. Pwd"
+    echo "5. Exit"
+    
+    # Get user choice
+    read -p "Enter your choice (1-5): " choice
+    
+    # Execute commands based on user choice
+    case $choice in
+        1)
+            # Display current date
+            date
+            ;;
+        2)
+            # Display calendar
+            cal
+            ;;
+        3)
+            # List files in the current directory
+            ls
+            ;;
+        4)
+            # Display current directory
+            pwd
+            ;;
+        5)
+            # Exit the script
+            echo "Bye!"
+            exit 0
+            ;;
+        *)
+            # Invalid choice
+            echo "Invalid choice. Please enter a valid choice!."
+            ;;
+    esac
+done
+
+anuragmaldhure@Anurags-MacBook-Air OS % ./menu.sh
+zsh: permission denied: ./menu.sh
+
+anuragmaldhure@Anurags-MacBook-Air OS % chmod u+x menu.sh 
+
+anuragmaldhure@Anurags-MacBook-Air OS % ./menu.sh   
+
+Menu:
+1. Date
+2. Cal
+3. Ls
+4. Pwd
+5. Exit
+Enter your choice (1-5): 1
+Wed Nov 29 23:30:08 IST 2023
+Menu:
+1. Date
+2. Cal
+3. Ls
+4. Pwd
+5. Exit
+Enter your choice (1-5): 2
+   November 2023      
+Su Mo Tu We Th Fr Sa  
+          1  2  3  4  
+ 5  6  7  8  9 10 11  
+12 13 14 15 16 17 18  
+19 20 21 22 23 24 25  
+26 27 28 29 30        
+                      
+Menu:
+1. Date
+2. Cal
+3. Ls
+4. Pwd
+5. Exit
+Enter your choice (1-5): 3
+Anurag.txt	Assignment2.txt	Assignment4.txt	Rushi.txt	data.txt	menu.sh		one
+Assignment1.txt	Assignment3.txt	Assignment5.txt	Test		demoVIM.sh	myName.txt
+Menu:
+1. Date
+2. Cal
+3. Ls
+4. Pwd
+5. Exit
+Enter your choice (1-5): 4
+/Users/anuragmaldhure/Documents/OS
+Menu:
+1. Date
+2. Cal
+3. Ls
+4. Pwd
+5. Exit
+Enter your choice (1-5): 5
+Bye!
+
+-------------------------------------------------------------------------------------------------------------------
+3. 
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim checkFileDirectory.sh
+
+#!/bin/bash
+
+# Prompt user for a name
+read -p "Enter a file or directory name: " name
+
+# Check if the entered name is a file
+if [ -f "$name" ]; then
+    echo "$name is a file."
+    
+    # Display file size
+    size=$(du -h "$name" | cut -f1)
+    echo "Size of $name: $size"
+    
+# Check if the entered name is a directory
+elif [ -d "$name" ]; then
+    echo "$name is a directory."
+    
+    # Display directory contents
+    echo "Contents of $name:"
+    ls "$name"
+    
+else
+    # If neither a file nor a directory
+    echo "The entered name is neither a file nor a directory."
+fi
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash checkFileDirectory.sh 
+Enter a file or directory name: one
+one is a directory.
+Contents of one:
+1.txt			11.txt			111.txt			linkFileHard.txt	linkFileSymbolic.txt	newFile.txt		two
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash checkFileDirectory.sh
+Enter a file or directory name: Assignment1
+The entered name is neither a file nor a directory.
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash checkFileDirectory.sh
+Enter a file or directory name: Assignment1.txt
+Assignment1.txt is a file.
+Size of Assignment1.txt:  16K
+
+-------------------------------------------------------------------------------------------------------------------
+4. 
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim prime.sh
+
+#!/bin/bash
+
+echo "Enter the number you want to check : "
+
+read number
+
+# Function to check if a number is prime
+is_prime() {
+    local num=$1
+    if [ $num -lt 2 ]; then
+        echo "Not a prime number."
+    else
+        for ((i = 2; i*i <= num; i++)); do
+            if [ $((num % i)) -eq 0 ]; then
+                echo "Not a prime number."
+                return
+            fi
+        done
+        echo "Prime number."
+    fi
+}
+
+if [ $number -lt 2 ]
+then
+        echo "Please enter a number greater than 1"
+
+elif [ $number -eq 2 ]
+then
+        echo "2 is a prime number"
+
+else
+        is_prime $number
+fi
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash prime.sh
+Enter the number you want to check : 
+1
+Please enter a number greater than 1
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash prime.sh
+Enter the number you want to check : 
+2
+2 is a prime number
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash prime.sh
+Enter the number you want to check : 
+19
+Prime number.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash prime.sh
+Enter the number you want to check : 
+143
+Not a prime number.
+
+-------------------------------------------------------------------------------------------------------------------
+5.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim greaterOfThreeNumbers.sh
+
+#!/bin/bash
+
+read -p "Enter number 1 = " a
+read -p "Enter number 2 = " b
+read -p "Enter number 3 = " c
+
+if [ $a -eq $b -a $b -eq $c ]
+then
+        echo "All are equal"
+
+elif [ $a -gt $b ]
+then
+        if [ $a -gt $c ]
+        then
+                echo "$a is greatest"
+        else
+                echo "$c is greatest"
+        fi
+else
+        if [ $b -gt $c ]
+        then
+                echo "$b is greatest"
+        else
+                echo "$c is greatest"
+        fi
+fi
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash greaterOfThreeNumbers.sh
+Enter number 1 = 1
+Enter number 2 = 2
+Enter number 3 = 3
+3 is greatest
+	
+anuragmaldhure@Anurags-MacBook-Air scripts % bash greaterOfThreeNumbers.sh
+Enter number 1 = 2
+Enter number 2 = 5
+Enter number 3 = 1
+5 is greatest
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash greaterOfThreeNumbers.sh
+Enter number 1 = 6
+Enter number 2 = 3
+Enter number 3 = 1
+6 is greatest
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash greaterOfThreeNumbers.sh
+Enter number 1 = 1
+Enter number 2 = 1
+Enter number 3 = 1
+All are equal																																																																																																								
+
+-------------------------------------------------------------------------------------------------------------------
+6.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim leapYear.sh 
+
+#!/bin/bash
+
+read -p "Enter a year: " year
+
+# Function to check if a year is a leap year
+is_leap_year() {
+    local year=$1
+
+    if ((year % 4 == 0 && year % 100 != 0)) || ((year % 400 == 0)); then
+        echo "$year is a leap year."
+    else
+        echo "$year is not a leap year."
+    fi
+}
+
+is_leap_year $year
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash leapYear.sh
+Enter a year: 0
+0 is a leap year.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash leapYear.sh
+Enter a year: 2022
+2022 is not a leap year.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash leapYear.sh
+Enter a year: 2024
+2024 is a leap year.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash leapYear.sh
+Enter a year: 2100
+2100 is not a leap year.
+
+-------------------------------------------------------------------------------------------------------------------
+7.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim positiveOrNegative.sh 
+
+#!/bin/bash
+
+read -p "Enter a number: " number
+
+check_positive_negative() {
+    local num=$1
+
+    if [ $num -gt 0 ]; then
+        echo "$num is a positive number."
+    elif [ $num -lt 0 ]; then
+        echo "$num is a negative number."
+    else
+        echo "$num is neither positive nor negative (it's zero)."
+    fi
+}
+
+check_positive_negative $number
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash positiveOrNegative.sh
+Enter a number: 2
+2 is a positive number.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash positiveOrNegative.sh
+Enter a number: 0
+0 is neither positive nor negative (it's zero).
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash positiveOrNegative.sh
+Enter a number: -1442
+-1442 is a negative number.
+
+-------------------------------------------------------------------------------------------------------------------
+8.
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim table.sh
+
+#!/bin/bash
+
+read -p "Enter a number to get its table: " num
+
+print_table() {
+    number=$1
+
+    echo "Table of $number:"
+    for ((i = 1; i <= 10; i++)); do
+        echo "$number x $i = $((number * i))"
+    done
+}
+
+print_table $num
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash table.sh
+Enter a number to get its table: 19
+Table of 19:
+19 x 1 = 19
+19 x 2 = 38
+19 x 3 = 57
+19 x 4 = 76
+19 x 5 = 95
+19 x 6 = 114
+19 x 7 = 133
+19 x 8 = 152
+19 x 9 = 171
+19 x 10 = 190
+
+-------------------------------------------------------------------------------------------------------------------
+9.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim factorial.sh
+
+#!/bin/bash
+
+read -p "Enter a number to find its factorial: " num
+
+calculate_factorial() {
+    local number=$1
+    local result=1
+
+    for ((i = 1; i <= number; i++)); do
+        result=$((result * i))
+    done
+
+    echo "Factorial of $number is: $result"
+}
+
+calculate_factorial $num
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash factorial.sh 
+Enter a number to find its factorial: 5
+Factorial of 5 is: 120
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash factorial.sh
+Enter a number to find its factorial: 7
+Factorial of 7 is: 5040
+
+-------------------------------------------------------------------------------------------------------------------
+10.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim fibonacci.sh
+
+#!/bin/bash
+
+read -p "Enter the number of terms in the Fibonacci series: " num_terms
+
+generate_fibonacci() {
+    local n=$1
+    local a=0
+    local b=1
+
+    echo "Fibonacci series with $n terms:"
+
+    for ((i = 1; i <= n; i++)); do
+        echo -n "$a "
+        temp=$((a + b))
+        a=$b
+        b=$temp
+    done
+    echo
+}
+
+generate_fibonacci $num_terms
+
+OR
+
+#!/bin/bash
+
+read -p "Enter the number of terms in the Fibonacci series: " num_terms
+
+fibonacci_recursive() {
+    local n=$1
+
+    if [ $n -eq 0 ]; then
+        echo -n "0 "
+    elif [ $n -eq 1 ]; then
+        echo -n "0 1 "
+    else
+        echo -n "$(fibonacci_recursive $((n-2)))"
+        echo -n "$(( $(fibonacci_recursive $((n-1))) + $(fibonacci_recursive $((n-2))) )) "
+    fi
+}
+
+echo "Fibonacci series with $num_terms terms:"
+fibonacci_recursive $num_terms
+echo
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash fibonacci.sh
+Enter the number of terms in the Fibonacci series: 10
+Fibonacci series with 10 terms:
+0 1 1 2 3 5 8 13 21 34 
+
+-------------------------------------------------------------------------------------------------------------------
+11.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim salary.sh
+
+#!/bin/bash
+
+read -p "Enter the basic salary: " basic_salary
+
+calculate_gross_salary() {
+    local basic=$1
+    local da_percentage=40
+    local hra_percentage=20
+
+    # Calculate DA and HRA
+    da=$(echo "scale=2; $basic * $da_percentage / 100" | bc)
+    hra=$(echo "scale=2; $basic * $hra_percentage / 100" | bc)
+
+    # Calculate gross salary
+    gross_salary=$(echo "scale=2; $basic + $da + $hra" | bc)
+
+    echo "Gross Salary: $gross_salary"
+}
+
+calculate_gross_salary $basic_salary
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash salary.sh 
+Enter the basic salary: 99999
+Gross Salary: 159998.40
+-------------------------------------------------------------------------------------------------------------------
+12.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim fileModTime.sh
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <filename>"
+    exit 1
+fi
+
+filename=$1
+
+if [ -e "$filename" ]; then
+    last_modified=$(date -r "$filename" +"%Y-%m-%d %H:%M:%S")
+    echo "Last modification time of $filename: $last_modified"
+else
+    echo "$filename does not exist."
+fi
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash fileModTime.sh fibonacci.sh
+Last modification time of fibonacci.sh: 2023-12-01 07:01:44
+
+-------------------------------------------------------------------------------------------------------------------
+13.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim showHiddenFolders.sh
+
+#!/bin/bash
+
+echo "Hidden files in the current directory:"
+ls -a ~ | grep '^\.'
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash showHiddenFolders.sh
+Hidden files in the current directory:
+.
+..
+.BrowserLock
+.CFUserTextEncoding
+.DS_Store
+.Trash
+.android
+.anydesk
+.cache
+.config
+.eclipse
+.git
+.matplotlib
+.mongodb
+.my.cnf
+.mysql_history
+.npm
+.oracle_jre_usage
+.p2
+.psql_history
+.redhat
+.ssh
+.sts4
+.vim
+.viminfo
+.zprofile
+.zsh_history
+.zsh_sessions
+
+
+-------------------------------------------------------------------------------------------------------------------
+14.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim executablesInCurrDir.sh
+
+anuragmaldhure@Anurags-MacBook-Air OS % ls -F | grep '*$'
+
+bigData.txt*
+demoVIM.sh*
+menu.sh*
+
+-------------------------------------------------------------------------------------------------------------------
+15.
+
+anuragmaldhure@Anurags-MacBook-Air OS % vim golmaal.sh
+
+#!/bin/bash
+
+read -p "Enter the name of the first file: " file1
+read -p "Enter the name of the second file: " file2
+
+# Check if the first file exists
+if [ ! -e "$file1" ]; then
+  echo "Error: The file $file1 does not exist."
+  exit 1
+fi
+
+# Read the content of the first file, convert to reverse case, and append to the second file
+tr '[:upper:][:lower:]' '[:lower:][:upper:]' < "$file1" >> "$file2"
+
+echo "Contents from $file1 in reverse case appended to $file2."
+
+anuragmaldhure@Anurags-MacBook-Air OS % bash golmaal.sh  
+Enter the name of the first file: bigDataMetaData.txt
+Enter the name of the second file: bigData.txt
+Contents from bigDataMetaData.txt in reverse case appended to bigData.txt.
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigData.txt
+1 Linux is open source.
+2 In Linux everything is file
+3 files have permissions.
+4 files have inode no.
+5 files have size.
+6 there are several types of files.
+7 The file system
+8 in linux
+8 in linux
+8 in linux
+8 in linux
+8 in linux
+9 is ext 3 4
+10 while in windows
+11 is NTFS or FAT32.
+12 Which file system 
+13 do you think is better?
+       6      25     145 BIGdATA.TXT
+
+anuragmaldhure@Anurags-MacBook-Air OS % cat bigDataMetaData.txt
+       6      25     145 bigData.txt
+
+-------------------------------------------------------------------------------------------------------------------
+16.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim WELCOME.sh
+
+#!/bin/bash
+
+# Display welcome message
+echo "Welcome to the Shell Scripting Example!"
+
+# Display contents of the user's home directory
+echo -e "\nContents of your home directory:"
+ls -l $HOME
+
+anuragmaldhure@Anurags-MacBook-Air scripts % chmod u+x WELCOME.sh 
+
+anuragmaldhure@Anurags-MacBook-Air scripts % ./WELCOME.sh        
+Welcome to the Shell Scripting Example!
+
+Contents of your home directory:
+total 8
+drwx------@   7 anuragmaldhure  staff   224 Sep  2 11:02 Applications
+drwx------@ 117 anuragmaldhure  staff  3744 Dec  1 15:32 Desktop
+drwx------@  12 anuragmaldhure  staff   384 Dec  1 23:03 Documents
+drwx------+  96 anuragmaldhure  staff  3072 Dec  1 18:42 Downloads
+drwxr-xr-x    5 anuragmaldhure  staff   160 Oct  7  2022 IdeaProjects
+drwx------@ 105 anuragmaldhure  staff  3360 Nov 17 08:44 Library
+-rw-r--r--@   1 anuragmaldhure  staff   587 Mar 26  2022 MATLAB__Support_Package_for_IP_Cameras.txt
+drwx------    8 anuragmaldhure  staff   256 Jan  8  2023 Movies
+drwx------+   7 anuragmaldhure  staff   224 Sep  8  2022 Music
+drwx------+   7 anuragmaldhure  staff   224 Aug 10  2022 Pictures
+drwxr-xr-x@   3 anuragmaldhure  staff    96 Sep 18 22:07 Postman
+drwxr-xr-x+   4 anuragmaldhure  staff   128 Mar 13  2022 Public
+drwxr-xr-x    6 anuragmaldhure  staff   192 Jun 21  2022 PycharmProjects
+drwxr-xr-x    4 anuragmaldhure  staff   128 Jul  7  2022 __pycache__
+
+-------------------------------------------------------------------------------------------------------------------
+17.
+
+anuragmaldhure@Anurags-MacBook-Air scripts % vim pattern.sh 
+
+#!/bin/bash
+
+#Take number of rows from user
+
+echo "Enter the number of rows you want in pattern : "
+
+read rows
+
+#star pattern logic
+for ((i = 1; i <= rows; i++)); 
+	do
+    	for ((j = 1; j <= i; j++)); 
+	do
+        	echo -n "* "
+    	done
+    echo
+done
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash pattern.sh
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash pattern.sh
+Enter the number of rows you want in pattern : 
+3
+* 
+* * 
+* * * 
+
+anuragmaldhure@Anurags-MacBook-Air scripts % bash pattern.sh
+Enter the number of rows you want in pattern : 
+7
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * * * 
+* * * * * * * 
+
+-------------------------------------------------------------------------------------------------------------------
+
